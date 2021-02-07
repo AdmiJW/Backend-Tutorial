@@ -1,0 +1,148 @@
+
+
+
+//========================
+// JUMBORTRON / CAROUSEL 
+//========================
+#main_carousel {
+    box-shadow: 0 5px 15px 10px rgba(0,0,0,.2);
+    
+    .carousel-inner {
+        height: 100vh;
+
+        &__text {
+            position: absolute;
+            width: unquote( 'min(500px, 65%)' );
+            color: white;
+
+            z-index: 1;
+            padding: 1.5rem;
+            left: 50%; top: 50%;
+            transform: translate(-50%, -50%);
+
+            background-color: rgba(0,0,0,0.5);
+            font-size: 1.3rem;
+
+            a {
+                margin: auto;
+            }
+        }
+
+        .carousel-item  {
+            .carousel-bg {
+                min-height: 100vh;
+                min-width: 100%;
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }
+            #carousel-bg-1 {
+                background-image: url('https://image.freepik.com/free-photo/plant-growing-ground_1150-19317.jpg');
+            }
+            #carousel-bg-2 {
+                background-image: url('https://image.freepik.com/free-photo/breathtaking-view-amazing-forest-with-lots-trees_181624-22474.jpg');
+            }
+            #carousel-bg-3 {
+                background-image: url('https://image.freepik.com/free-photo/beautiful-park_1417-1421.jpg');
+            }
+        }
+    }
+
+}
+
+
+//========================
+// CONTENT
+//========================
+.content {
+    h2 {
+        font-size: 4rem;
+    }
+
+    &__showcase {
+        display: grid;
+        justify-items: center;
+        gap: 20px;
+        grid-template-areas:
+        'pic1' 'txt1' 'pic2' 'txt2' 'pic3' 'txt3';
+
+        img {
+            width: 100%;
+        }
+
+        h4 {
+            text-align: center;
+            font-size: 2.5rem;
+        }
+
+        p {
+            text-align: justify;
+            font-size: 1.3rem;
+        }
+
+        //  Put all text and picture in respective grids, using for loop
+        @for $i from 1 through 3 {
+            #content_item#{$i}--pic {
+                grid-area: pic#{$i};
+            }
+            #content_item#{$i}--desc {
+                grid-area: txt#{$i};
+            }
+        }
+    }
+}
+
+
+
+
+
+
+//========================
+// Media Query
+//========================
+@media screen and (min-width: 768px) {
+
+    .content {
+        &__showcase {
+            align-items: center;
+            grid-template-areas: 'pic1 txt1' 'txt2 pic2' 'pic3 txt3';
+
+            .grid-align-right h4 {
+                text-align: right;
+            }
+            .grid-align-left h4 {
+                text-align: left;
+            }
+    
+            p {
+                font-size: 1.7rem;
+            }
+        }
+    }
+
+}
+
+
+@media screen and (min-width: 992px) {
+    #main_carousel {
+        .carousel-inner {
+            &__text {
+                width: unquote( 'min(500px, 40%)' );
+                padding: 4rem 3rem;
+
+                left: 20%; top: 50%;
+                transform: translate(-20%, -50%);
+    
+                background-color: rgba(0,0,0,0.5);
+                
+                h1 {
+                    font-size: 6rem;
+                }
+                p, a{
+                    font-size: 2rem;
+                }
+            }
+        }
+    
+    }
+}

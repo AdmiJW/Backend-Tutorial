@@ -1,0 +1,145 @@
+#main_carousel {
+  -webkit-box-shadow: 0 5px 15px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 15px 10px rgba(0, 0, 0, 0.2);
+}
+
+#main_carousel .carousel-inner {
+  height: 100vh;
+}
+
+#main_carousel .carousel-inner__text {
+  position: absolute;
+  width: min(500px, 65%);
+  color: white;
+  z-index: 1;
+  padding: 1.5rem;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: 1.3rem;
+}
+
+#main_carousel .carousel-inner__text a {
+  margin: auto;
+}
+
+#main_carousel .carousel-inner .carousel-item .carousel-bg {
+  min-height: 100vh;
+  min-width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+#main_carousel .carousel-inner .carousel-item #carousel-bg-1 {
+  background-image: url("https://image.freepik.com/free-photo/plant-growing-ground_1150-19317.jpg");
+}
+
+#main_carousel .carousel-inner .carousel-item #carousel-bg-2 {
+  background-image: url("https://image.freepik.com/free-photo/breathtaking-view-amazing-forest-with-lots-trees_181624-22474.jpg");
+}
+
+#main_carousel .carousel-inner .carousel-item #carousel-bg-3 {
+  background-image: url("https://image.freepik.com/free-photo/beautiful-park_1417-1421.jpg");
+}
+
+.content h2 {
+  font-size: 4rem;
+}
+
+.content__showcase {
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+      grid-template-areas: 'pic1' 'txt1' 'pic2' 'txt2' 'pic3' 'txt3';
+}
+
+.content__showcase img {
+  width: 100%;
+}
+
+.content__showcase h4 {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.content__showcase p {
+  text-align: justify;
+  font-size: 1.3rem;
+}
+
+.content__showcase #content_item1--pic {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: pic1;
+}
+
+.content__showcase #content_item1--desc {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: txt1;
+}
+
+.content__showcase #content_item2--pic {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: pic2;
+}
+
+.content__showcase #content_item2--desc {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: txt2;
+}
+
+.content__showcase #content_item3--pic {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: pic3;
+}
+
+.content__showcase #content_item3--desc {
+  -ms-grid-row: 6;
+  -ms-grid-column: 1;
+  grid-area: txt3;
+}
+
+@media screen and (min-width: 768px) {
+  .content__showcase {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+        grid-template-areas: 'pic1 txt1' 'txt2 pic2' 'pic3 txt3';
+  }
+  .content__showcase .grid-align-right h4 {
+    text-align: right;
+  }
+  .content__showcase .grid-align-left h4 {
+    text-align: left;
+  }
+  .content__showcase p {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #main_carousel .carousel-inner__text {
+    width: min(500px, 40%);
+    padding: 4rem 3rem;
+    left: 20%;
+    top: 50%;
+    -webkit-transform: translate(-20%, -50%);
+            transform: translate(-20%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  #main_carousel .carousel-inner__text h1 {
+    font-size: 6rem;
+  }
+  #main_carousel .carousel-inner__text p, #main_carousel .carousel-inner__text a {
+    font-size: 2rem;
+  }
+}
+/*# sourceMappingURL=homepage.css.map */

@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Embedded Javascript (EJS)</title>
+        <meta charset='UTF-8'/>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    </head>
+    <body>
+
+        <h1>Welcome to this website, <%= data.name; %></h1>
+
+        <form action='/ejs' method='POST' id='form'>
+            <label for='name'>Your Name: </label>
+            <input type='text' name='name' placeholder='John'/>
+            <label for='search'>Search: </label>
+            <input type='text' name='search' placeholder='peanuts'/>
+
+            <button type='submit'>Submit</button>
+        </form>
+
+        <h3>Your Search Results:</h3>
+        <% for (let i of data.search) { %>
+            <p><%= i %><p>
+        <% } %>
+
+    </body>
+</html>

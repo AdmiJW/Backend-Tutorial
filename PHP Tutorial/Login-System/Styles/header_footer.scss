@@ -1,0 +1,94 @@
+:root {
+    font-size: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+//=======================
+//     HEADER NAV
+//=======================
+.navbar {
+    font-size: 2rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+
+    &-brand {
+        font-size: 2.5rem;
+    }
+
+    &-nav {
+        align-items: center;
+        li {
+            margin: .2rem 0;
+        }
+    }
+}
+
+
+
+//========================
+// FOOTER
+//========================
+.footer {
+    box-shadow: 0 -5px 15px 10px rgba(0,0,0,.2);
+
+    button {
+        appearance: none;
+        background: transparent;
+        border: none;
+        font-size: 2.5rem;
+        font-weight: lighter;
+        color: white;
+        box-shadow: 4px 4px 4px darken(#292b2c, 25%),
+                    -4px -4px 4px lighten(#292b2c, 25%);
+
+        &:hover, &:focus {
+            box-shadow: inset 2px 2px 2px darken(#292b2c, 25%),
+                    inset -2px -2px 2px lighten(#292b2c, 25%);
+        }
+    }
+    
+    &__info {
+        &__pic {
+            margin: 3rem auto;
+            padding: 0;
+            border-radius: 50%;
+            width: unquote( 'min(300px, 50%)' );
+            box-shadow: 0px 12px 6px darken(#292b2c, 5%),
+        }
+        &__text {
+            h4 {
+                text-align: center;
+            }
+        }
+    }
+}
+
+
+
+//========================
+// Media Query
+//========================
+@media screen and (min-width: 768px) {
+    .footer {
+        &__info {
+            &__text {
+                h4 {
+                    text-align: left;
+                    font-size: 3rem;
+                }
+                p {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}

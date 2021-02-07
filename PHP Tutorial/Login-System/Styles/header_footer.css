@@ -1,0 +1,80 @@
+:root {
+  font-size: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.navbar {
+  font-size: 2rem;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.navbar-brand {
+  font-size: 2.5rem;
+}
+
+.navbar-nav {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar-nav li {
+  margin: .2rem 0;
+}
+
+.footer {
+  -webkit-box-shadow: 0 -5px 15px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 -5px 15px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: transparent;
+  border: none;
+  font-size: 2.5rem;
+  font-weight: lighter;
+  color: white;
+  -webkit-box-shadow: 4px 4px 4px black, -4px -4px 4px #676c6e;
+          box-shadow: 4px 4px 4px black, -4px -4px 4px #676c6e;
+}
+
+.footer button:hover, .footer button:focus {
+  -webkit-box-shadow: inset 2px 2px 2px black, inset -2px -2px 2px #676c6e;
+          box-shadow: inset 2px 2px 2px black, inset -2px -2px 2px #676c6e;
+}
+
+.footer__info__pic {
+  margin: 3rem auto;
+  padding: 0;
+  border-radius: 50%;
+  width: min(300px, 50%);
+  -webkit-box-shadow: 0px 12px 6px #1d1e1f;
+          box-shadow: 0px 12px 6px #1d1e1f;
+}
+
+.footer__info__text h4 {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .footer__info__text h4 {
+    text-align: left;
+    font-size: 3rem;
+  }
+  .footer__info__text p {
+    font-size: 1.2rem;
+  }
+}
+/*# sourceMappingURL=header_footer.css.map */

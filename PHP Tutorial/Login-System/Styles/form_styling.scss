@@ -1,0 +1,94 @@
+/* ==========================================================
+    
+Form Styling
+
+>   For the style to be applied, please use class .apply-form-style
+    on the form element
+
+>   The text, password, email input field will become one line
+    at bottom only.
+
+>   To have the label to overlay when the input field is empty,
+    and shrink to above input field when inputted or focused,
+    use class
+            .overlay
+    on the label element
+
+=========================================================== */
+
+
+
+body {
+    background-color: #ecf0f1;
+}
+
+.apply-form-style {
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    min-width: 280px;
+    box-shadow: 4px 4px 2px darken(#ecf0f1, 10%),
+                -4px -4px 2px lighten(#ecf0f1, 4%);
+
+    h1 {
+        font-size: 5rem;
+    }
+
+    .form-group {
+        position: relative;
+        width: 100%;
+        margin: 10px 0;
+
+        input[type='text'], input[type='password'], input[type='email'] {
+            font-size: 2.2rem;
+            font-weight: lighter;
+            border: none;
+            outline: none;
+            box-shadow: none;
+            background-color: transparent;
+            border-bottom: solid 1px black;
+            border-radius: 0;
+    
+            width: 100%;
+        }
+
+        //  The input fields which are empty will have the label overlay
+        .overlay {
+            position: absolute;
+            left: 10px; top: 10px;
+            font-size: 2rem;
+            font-weight: lighter;
+            transition: all .3s ease;
+            cursor: text;
+        }
+
+        //  When the input field is selected or filled, do not overlay label on it
+        input:focus ~ .overlay, input:valid ~ .overlay {
+            left: 10px !important; top: -10px !important;
+            font-size: 1rem !important;
+            font-weight: bold !important;
+        }
+
+        label[for='register_birthdate'] {
+            font-size: 2rem;
+            font-weight: lighter;
+        }
+
+    }
+
+    button[type='submit'] {
+        width: 100px;
+        font-size: 2rem;
+        font-weight: lighter;
+
+        background-color: lighten(#ecf0f1, 4%);
+        box-shadow: 0px 3px 2px darken(#ecf0f1, 15%),
+                    0px -5px 2px lighten(#ecf0f1, 2%);
+        transition: box-shadow .5s ease;
+
+        &:hover, &:focus {
+            box-shadow: inset -2px -2px 2px lighten(#ecf0f1, 15%),
+                        inset 2px 2px 2px darken(#ecf0f1, 15%);
+        }
+    }
+
+}

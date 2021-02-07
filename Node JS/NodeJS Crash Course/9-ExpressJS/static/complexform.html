@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Complex Form</title>
+        <meta charset='UTF-8'/>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    </head>
+    <body>
+
+        <form id='form'>
+            <p><label for='username'>Username: </label></p>
+            <input type='text' name='username' placeholder='AdmiJW' />
+
+            <p><label for='email'>Email: </label></p>
+            <input type='email' name='email' placeholder='johndoe@gmail.com'/>
+
+            <p><label for='age'>Age: </label></p>
+            <input type='number' name='age' value='18'/>
+
+            <p><label for='password'>Password: </label></p>
+            <input type='password' name='password'/>
+
+            <br>
+            <button type='submit' name='submit'>Submit</button>
+        </form>
+
+    </body>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded',()=>{
+            document.querySelector('#form').addEventListener('submit', async (e)=> {
+                e.preventDefault();
+                
+                const response = await fetch('/complexform', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        userInformation: {
+                            username: e.target[0].value,
+                            email: e.target[1].value,
+                            age: e.target[2].value,
+                            password: e.target[3].value
+                        },
+                        submitTime: new Date().toISOString()
+                    })
+                });
+                console.log( await response.json() );
+            });
+        });
+    </script>
+</html>

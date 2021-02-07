@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AJAX Example</title>
+        <meta name='charset' content='UTF-8'/>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    </head>
+    <body>
+        
+        <form id='form'>
+            <p><label for='email'>Email: </label></p>
+            <input type='email' name='email' placeholder='johndoe@gmail.com'/>
+
+            <p><label for='password'>Password: </label></p>
+            <input type='password' name='password'/>
+
+            <button type='submit' name='submit'>Submit</button>
+        </form>
+
+    </body>
+
+
+
+    <!-- In more traditional, this is done in JQuery. However Modern times just using
+         Vanilla Javascript is enough -->
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=> {
+            
+            document.querySelector('#form').addEventListener('submit', async (e)=> {
+                e.preventDefault();
+
+                //  Remember to put the URL that handles the POST request
+                const response = await fetch('/json', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        'email': e.target[0].value,
+                        'password': e.target[1].value
+                    })
+                });
+                
+                console.log( await response.json() );   //  Supposedly do database stuff. Here just log out
+            });
+        });
+    </script>
+</html>

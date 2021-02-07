@@ -1,0 +1,119 @@
+:root {
+    font-size: 15px;
+}
+
+body {
+    background-color: #34495e;
+}
+
+code {
+    white-space: pre-line;
+}
+li {
+    padding: 8px 0;
+}
+
+
+/*======================
+        JUMBOTRON
+======================*/
+.jumbotron {
+    height: 100vh;
+
+    background-color: #2980b9; 
+    background-image: url('https://elements-video-cover-images-0.imgix.net/files/edf58567-0c1d-412c-9df8-c58505a7114f/inline_image_preview.jpg?auto=compress%2Cformat&fit=min&h=394&w=700&s=c8321e21ae918acd2922db1f95829525');
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;  
+
+    color: white;
+}
+.jumbotron__textdiv {
+    background-color: rgba(0,0,0,.6);
+}
+
+
+.topic__io {
+    min-height: 50px;
+}
+
+.topic__code {
+    background-color: black !important;
+    color: #00ff37 !important;
+}
+
+
+
+
+/*======================
+        MEDIA QUERIES
+======================*/
+@media screen and (max-width: 576px) {
+    .jumbotron__textdiv h1 {
+        font-size: 3rem;
+    }
+    .jumbotron__textdiv h3 {
+        font-size: 2rem;
+    }
+    .jumbotron > .card {
+        width: 75% !important;
+    }
+}
+
+/*
+
+
+    <!---------------------------->
+    <!-- SAMPLE -->
+    <!---------------------------->
+    <div class='card topic py-3 px-2 my-5' id='YOUR_ID_HERE'>
+
+        <!-- HEADER -->
+        <h2 class='display-4 text-center'>YOUR_TOPIC_HERE</h2>
+
+        <!-- Description-->
+        <div class='card shadow-sm topic__desc bg-light my-5'>
+            <p>
+                <ul>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+            </p>
+        </div>
+
+        <!-- Code -->
+        <code class='card shadow-sm topic__code my-3 p-2'>
+
+        </code>
+
+        <!-- Display & Output -->
+        <div class='flex-row w-100 card shadow-sm bg-light row mt-5 mx-auto' id='YOUR_ID_HERE'>
+            <div class='card bg-warning text-center col-6'>Input</div>
+            <div class='card bg-success text-center text-white col-6'>Output</div>
+        </div>
+        <div class='flex-row w-100 card shadow-sm bg-light row mb-2 mx-auto topic__io'>
+            <!-- INPUT -->
+            <div class='card bg-light topic__io__in col-6'>
+            </div>
+            <!-- OUTPUT -->
+            <div class='card bg-light topic__io__out col-6'>
+                PHP_CODE_HERE
+                echo "<script>document.getElementById('run_3').scrollIntoView(true);</script>";
+            </div>
+        </div>
+
+        <!-- Run PHP code -->
+        <form action='php_cheat_sheet2.php' method='GET' class='text-center my-2'>
+            <button type='submit' class='btn btn-primary' name='YOUR_ID_HERE'>Run Code</button>
+        </form>
+    </div>
+
+
+*/

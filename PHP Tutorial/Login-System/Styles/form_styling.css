@@ -1,0 +1,93 @@
+/* ==========================================================
+    
+Form Styling
+
+>   For the style to be applied, please use class .apply-form-style
+    on the form element
+
+>   The text, password, email input field will become one line
+    at bottom only.
+
+>   To have the label to overlay when the input field is empty,
+    and shrink to above input field when inputted or focused,
+    use class
+            .overlay
+    on the label element
+
+=========================================================== */
+body {
+  background-color: #ecf0f1;
+}
+
+.apply-form-style {
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  min-width: 280px;
+  -webkit-box-shadow: 4px 4px 2px #cfd9db, -4px -4px 2px #f8f9fa;
+          box-shadow: 4px 4px 2px #cfd9db, -4px -4px 2px #f8f9fa;
+}
+
+.apply-form-style h1 {
+  font-size: 5rem;
+}
+
+.apply-form-style .form-group {
+  position: relative;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.apply-form-style .form-group input[type='text'], .apply-form-style .form-group input[type='password'], .apply-form-style .form-group input[type='email'] {
+  font-size: 2.2rem;
+  font-weight: lighter;
+  border: none;
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: transparent;
+  border-bottom: solid 1px black;
+  border-radius: 0;
+  width: 100%;
+}
+
+.apply-form-style .form-group .overlay {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 2rem;
+  font-weight: lighter;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  cursor: text;
+}
+
+.apply-form-style .form-group input:focus ~ .overlay, .apply-form-style .form-group input:valid ~ .overlay {
+  left: 10px !important;
+  top: -10px !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+}
+
+.apply-form-style .form-group label[for='register_birthdate'] {
+  font-size: 2rem;
+  font-weight: lighter;
+}
+
+.apply-form-style button[type='submit'] {
+  width: 100px;
+  font-size: 2rem;
+  font-weight: lighter;
+  background-color: #f8f9fa;
+  -webkit-box-shadow: 0px 3px 2px #c0cdd1, 0px -5px 2px #f2f5f5;
+          box-shadow: 0px 3px 2px #c0cdd1, 0px -5px 2px #f2f5f5;
+  -webkit-transition: -webkit-box-shadow .5s ease;
+  transition: -webkit-box-shadow .5s ease;
+  transition: box-shadow .5s ease;
+  transition: box-shadow .5s ease, -webkit-box-shadow .5s ease;
+}
+
+.apply-form-style button[type='submit']:hover, .apply-form-style button[type='submit']:focus {
+  -webkit-box-shadow: inset -2px -2px 2px white, inset 2px 2px 2px #c0cdd1;
+          box-shadow: inset -2px -2px 2px white, inset 2px 2px 2px #c0cdd1;
+}
+/*# sourceMappingURL=form_styling.css.map */
