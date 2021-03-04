@@ -1,0 +1,14 @@
+{
+  "name": "MongoDB",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1.0 - Introduction to MongoDB.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "AdmiJW",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.11.18"
+  }
+}

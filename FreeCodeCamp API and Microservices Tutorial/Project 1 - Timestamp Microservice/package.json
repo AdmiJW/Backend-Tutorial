@@ -1,0 +1,11 @@
+{
+  "name": "project1-timestamp-microservice",
+  "version": "1.0.0",
+  "description": "FreeCodeCamp Project #1 - Timestamp Microservice by AdmiJW",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AdmiJW",
+  "license": "MIT"
+}
