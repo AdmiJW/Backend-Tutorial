@@ -43,7 +43,7 @@ form.addEventListener('submit', (e)=> {
     const date = Math.floor( new Date(dateValue) / 1000);
     
     if ( !Number.isNaN(date) ) 
-        window.location.href = `./timestamp/${formDateInput.valueAsNumber || formDateStrInput.value}`;
+        window.location.href = `./api/timestamp/${formDateInput.valueAsNumber || formDateStrInput.value}`;
     else 
         window.alert('Invalid Date Input');
 });
