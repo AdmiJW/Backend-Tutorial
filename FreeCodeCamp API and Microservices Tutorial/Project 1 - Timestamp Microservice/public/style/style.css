@@ -88,20 +88,27 @@ main > #main_content > p {
   font-size: 1.5rem;
 }
 
+.card-body {
+  background-color: #fafafa;
+}
+
 #api__form__header, #api__manual__header {
   font-size: 1.5rem;
 }
 
-#api__form__body #api__form__references h4 {
+#api__form__body h4 {
   font-size: 3rem;
 }
 
-#api__form__body #api__form__references p {
+#api__form__body p, #api__form__body a {
   font-size: 1.2rem;
 }
 
 #api__form__body #api__form__form {
   font-size: 1.5rem;
+  border-radius: 10px;
+  -webkit-box-shadow: inset -6px -6px 4px 2px rgba(255, 255, 255, 0.83), inset 6px 6px 4px 2px rgba(217, 210, 200, 0.51);
+          box-shadow: inset -6px -6px 4px 2px rgba(255, 255, 255, 0.83), inset 6px 6px 4px 2px rgba(217, 210, 200, 0.51);
 }
 
 #api__form__body #api__form__form input, #api__form__body #api__form__form button, #api__form__body #api__form__form h4 {

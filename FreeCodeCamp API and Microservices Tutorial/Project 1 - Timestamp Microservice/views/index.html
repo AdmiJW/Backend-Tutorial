@@ -36,7 +36,7 @@
     <!------------>
     <!-- NAVBAR--->
     <!------------>
-    <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
+    <nav class='navbar sticky-top navbar-expand-lg navbar-dark bg-dark'>
     <div class='container'>
         <!-- Brand -->
         <a href='#' class='navbar-brand'>⌚ Timestamp Microservice ⌚</a>
@@ -103,7 +103,13 @@
                             <p class='text-center text-danger m-0'>1451001600000</p>
                         </div>
 
-                        <form class='text-center' id='api__form__form'>
+                        <div class='my-5 text-center' id='api__form__now'>
+                            <h4 class='lead text-center'>Timestamp For This Very Moment</h4>
+                            <a href='./api/timestamp' class='btn btn-lg btn-success'>Get Timestamp For Current Time</a>
+                        </div>
+
+                        <h4 class='lead text-center'>Or Input your Date:</h4>
+                        <form class='text-center m-2 p-5' id='api__form__form'>
                             <div class='form-group form-row justify-content-center'>
                                 <label for='date' class='col-form-label col-sm-3 text-center'>Date:</label>
                                 <input type='date' class='form-control col-sm-6' id='form__date' />
