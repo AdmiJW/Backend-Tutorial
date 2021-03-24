@@ -33,9 +33,9 @@ app.get('/', (req,res)=> {
 app.get('/api/whoami', (req,res)=> {
     const language = req.headers['accept-language'];
     const software = req.headers['user-agent'];
-    const ip = req.headers['x-forwarded-for'] || req.ip;
+    const ipaddress = req.headers['x-forwarded-for'] || req.ip;
     res.json({
-        ip, language, software
+        ipaddress, language, software
     });
 });
 
