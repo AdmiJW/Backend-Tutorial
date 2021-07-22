@@ -1,0 +1,21 @@
+{
+  "name": "mocha-and-chai-for-testing",
+  "version": "1.0.0",
+  "description": "Mocha and Chai for Testing and Quality Assurance",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -u tdd",
+    "start": "node server.js"
+  },
+  "author": "AdmiJW",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "mocha": "^9.0.2",
+    "puppeteer": "^10.1.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
