@@ -8,6 +8,7 @@
 //  We learnt on how to use MongoDB through shells. Even though it is more technical than using GUI like MongoDB Compass,
 //  it still doesn't help us in manipulating the database through our javascript!
 //
+//  We've taken a sneak peek on Mongoose in Section 2.0, but more on that later as it can be complicated.
 //  There is a official MongoDB driver for NodeJS, called "MongoDB NodeJS Driver". Install it through npm first
 //
 //      npm i mongodb

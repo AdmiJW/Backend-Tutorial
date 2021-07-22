@@ -1,0 +1,291 @@
+
+//- First of all, use "doctype html" to specify the document type
+doctype html
+
+//- To comment, we use // like in Javascript. Commenting this way will generate a HTML comment in HTML file
+//- For block comments, make sure to indent it correctly for it to be considered a valid comment block.
+//- Use //- (With the minus sign) to ignore the comment and not be generated in final HTML
+
+//- ===================================================================================================
+    1.0 - INTRODUCTION
+
+    In Pug templating engine, it utilizes the indentation for levels of nesting, similar to Python.
+    For example,
+            head
+            body
+        will be converted to
+            <head></head>
+            <body></body>
+    while
+            ul
+                li
+                li
+        will be converted to
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>   
+
+    ===================================================================================================
+    2.0 - Content of HTML Element
+
+    To specify content of an HTML element, we can do it in three ways:
+
+    a.  Specify inline, right after the tag, like:
+                h1 Hello World
+            generates:
+                <h1>Hello World</h1>
+    
+    b.  Multiline contents. Start with a period, then a new level of indentation, like:
+                h1.
+                    This is a 
+                    Multilined content
+            generates:
+                <h1>This is a multilined content</h1>
+
+    c. Prefix each line of content with a pipeline character |
+                h1
+                    | This is a
+                    | Multilined content
+            generates the same thing.
+
+    ===================================================================================================
+    3.0 - ID of HTML Element
+
+    To specify ID is intuitive. Simply follow the tagname with a # sign, followed by the ID name
+            h1#bigTitle
+        generates:
+            <h1 id='bigTitle'></h1>
+
+    ===================================================================================================
+    4.0 - Class of HTML Element
+
+    As for class Names, we use period '.', followed by class names
+            h1.bolded.italicized.bigTitle
+        generates:
+            <h1 class='bolded italicized bigTitle'></h1>
+
+    Multiple classes can be specified using Javascript Object, as we may see later
+
+    ===================================================================================================
+    5.0 - Attributes of HTML Element
+
+    Attributes are enclosed in brackets., separated by spaces. Attributes can span multiple lines
+            input(type='text' name='myInput' disabled)
+        generates:
+            <input type='text' name='myInput' disabled>
+
+            input(
+                type='text'
+                name='myInput'
+                disabled
+            )
+        generates the same thing
+
+    Attributes can be specified via Javascript objects, as we may see later
+
+    =====================================================================================
+    6.0 - Javascript in Pug
+
+    In Pug, one of the powerful feature is that we can run Javascript in it.
+    Javascript codes are differentiated as buffered and unbuffered codes.
+    Buffered code simply mean that code will output something into the HTML file.
+    Unbuffered code is code that doesn't output something to HTML file, but perform some operations, like declaring array
+
+    Unbuffered code are prefixed with a minus sign, '-'
+    For example, variables or arrays declared may later be used in Buffered code! 
+            - const myArr = ['Cls1', 'Cls2', 'Cls3']
+    Note that to span multiline, simply indent the block:
+            - 
+                const myObj = {
+                    name: "John",
+                    age: 18
+                }
+
+
+    Buffered code are prefixed with a equal sign, '=', just like when we are assigning things
+            p= '2 x 10 + 5 is ' + 2*10+5
+        generates: 
+            <p>2 x 10 + 5 is 25</p>
+        (Ensure that equal sign directly follows the tag, no whitespaces)
+    As stated before, variables declared in unbuffered code can be used too
+            p= myArr
+            p(class=myArr)
+        generates:
+            <p>Cls1,Cls2,Cls3</p>
+            <p class="Cls1 Cls2 Cls3"></p>
+        
+    Another way for buffered code is via #{} syntax. For example,
+            p #{myArr}
+            p #{myArr.join('-').toUpperCase()}
+        generates:
+            <p>Cls1,Cls2,Cls3</p>
+            <p>CLS1-CLS2-CLS3</p>
+        
+    =====================================================================================
+    7.0 - CSS in Pug
+
+    CSS can be included in HTML by 3 methods: external, internal and inline.
+    External is done by specifying the link tag with respective attributes. Say:
+            link(rel='stylesheet' href='./style.css' type='text/css')
+
+    For internal CSS, specify a style tag with (likely) multiline contents:
+            style.
+                body {
+                    color: red;
+                }
+
+    For inline CSS, specify the styles of an element in its attribute.
+            p(style='color: red')
+    
+    CSS styles can be applied via Javascript Objects. See:
+            - const myStyle = {"color": "red", "background-color": "green"};
+            p(style=myStyle)
+
+    =====================================================================================
+    8.0 - Iterating in Pug
+
+    We often receive a listed objects to iterate. We do that via 'for' or 'each' keyword
+    in Pug. Note that 'each' and 'for' is simply aliases
+
+    Note that we can also use an 'else' block, which is executed when we attempt to iterate
+    empty array or empty object
+
+            - const myArr = ['It1', 'It2', 'It3'];
+            - const myObj = {'name': 'Alex', 'age': 18};
+
+    Single value:
+            each elem in myArr
+                li= elem
+            
+            for val in myObj
+                li= val
+
+        generates: 
+            <li>It1</li>
+            <li>It2</li>
+            <li>It3</li>
+            <li>Alex</li>
+            <li>18</li>
+
+    Paired value: 
+            each elem, idx in myArr
+                li= elem + " - " + idx
+            for val, key in myObj
+                li= key + " = " + val
+
+        generates:
+            <li>It1 - 0</li>
+            <li>It2 - 1</li>
+            <li>It3 - 2</li>
+            <li>name = Alex</li>
+            <li>age = 18</li>
+
+    Else block:
+            each i in []
+                p= i
+            else
+                strong There is no Element
+    
+        generates:
+            <strong>There is no Element</strong>
+
+    =====================================================================================
+    9.0 - Conditionals in Pug
+
+    Pug contains 'if', 'else if' and 'else' statements, in addition to 'case' and 'when' statements (switch-case)
+    Let's see how they works:
+
+            - 
+                const employee = {
+                    name: "John",
+                    address: ""
+                }
+
+            #employee1
+                h4= employee.name
+                if employee.address
+                    p= employee.address
+                else
+                    p No address provided
+
+        generates:
+            <div id="employee1">
+                <h4>John</h4>
+                <p>No address provided</p>
+            </div>
+
+    Switch case using 'case' and 'when' statements:
+            switch employee.name
+                when "Alex"
+                    p You are Alex
+                when "Peter"
+                    p You are Peter
+                default
+                    p You are some employee
+
+        generates:
+            <p>You are some employee</p>
+
+    =====================================================================================
+    10.0 - Includes and Mixins
+
+    Includes allow us to include other .pug files into our pug code. This is particularly
+    useful for repetitive HTML segments, like headers, footers or navigation of a website
+
+    Mixins are like functions: Feed it some arguments, and it will generate HTML for you.
+    It is useful for repetitive components, like comment blocks of each user.
+
+    For includes, we simply use the keyword 'include' followed by the path to the file
+            include myIncludes/header.pug
+
+    For mixins, we first declare the mixin itself, by specify 'mixin' keyword followed by the
+    name of mixin, then inside bracket, specify a list of parameters. Then, define the output
+
+            mixin commentBlock(commentInfo)
+                .comment
+                    h4= commentInfo.author
+                    strong= commentInfo.date
+                    p= commentInfo.content
+
+    Then, we call the mixin by using a plus sign, '+' immediately followed by the name of mixin and
+    its arguments
+            - const c1 = { author: "John", date: "4 Jul 2021", content: "So funny" };
+            +commentBlock(c1)
+
+    Design Idea: We may have one pug file which contains all purely mixins, and then include in our main pug
+                file to use the mixins.
+
+    =====================================================================================
+    11.0 - Inheritance (and Polymorphism?) in Pug
+
+    In our pug code, we can specify segments via 'block' keyword, which means when this pug code is extended,
+    the segment can be replaced by a different pug code, while preserving the other same pug codes in the parent pug file
+
+    In source:
+                doctype html
+                html
+                    head
+                    body
+                        block replaceMe
+                            p This is the default replaceMe segment if not overridden in inherited pug code
+                    
+    In inherited:
+                extends extendfiles/parent.pug
+
+                block replaceMe
+                    p This is overridden!
+
+    Result:
+                doctype html
+                html
+                    head
+                    body
+                        block replaceMe
+                            p This is overridden!
+
+
+html
+    head 
+    body
+        h1 Example Pug Code here
