@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocketIO Example</title>
+
+    <!-- This is the SocketIO code -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.min.js'></script>
+    <script src='/public/script_1.js' defer></script>
+</head>
+<body>
+    <h1>Socket.IO example</h1>
+
+    <form id='form'>
+        <label for='event-name'>Event Name:</label>
+        <select name='event-name' id='event-name'>
+            <option value='message-server' selected>Message Server</option>
+            <option value='broadcast'>Broadcast</option>
+            <option value='ping'>Ping</option>
+        </select>
+        <label for='event-message'>Data:</label>
+        <textarea id='event-message' name='event-message'></textarea>
+
+        <button type='submit'>Submit</button>
+    </form>
+
+    <ul>
+        <li><code>Message Server</code> - Sends message to server. Server will console log it</li>
+        <li><code>Broadcast</code> - Sends message to server. Server will broadcast to every other connected sockets</li>
+        <li><code>Ping</code> - Server will send back a Pong</li>
+    </ul>
+</body>
+</html>

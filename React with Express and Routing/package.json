@@ -1,0 +1,16 @@
+{
+  "name": "react-with-express-and-routing",
+  "version": "1.0.0",
+  "description": "Example of Serving React with Express and Routing React",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start-react": "cd react-frontend && npm start"
+  },
+  "author": "AdmiJW",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}

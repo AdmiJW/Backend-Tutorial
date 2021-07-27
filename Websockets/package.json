@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.1.3",
+    "websocket": "^1.0.34"
+  },
+  "name": "websockets",
+  "description": "* You've used live chat applications, played multiplayer games and maybe simply seen progress bar on websites before. Ever wondered how they work?",
+  "version": "1.0.0",
+  "main": "_1_1_Websockets.js",
+  "scripts": {
+    "nodemon": "nodemon _1_2_SocketIO.js"
+  },
+  "author": "AdmiJW",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
