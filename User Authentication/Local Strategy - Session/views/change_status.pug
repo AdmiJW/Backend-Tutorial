@@ -1,0 +1,20 @@
+extends _template.pug
+
+block body
+    h1.title.my-5.text-7xl.text-center Change Status
+
+    include _message.pug
+
+    h4.subtitle.my-3.text-xl.text-center Your Current Status:
+    .text-center
+        blockquote.statustext.inline-block.p-3.my-6.mx-auto.border-l-4.border-blue-400.bg-gray-100.text-xl.text-center.rounded-md
+            =status
+
+    form.flex.flex-col.px-6.change-status-form(action='/change_status' method='POST')
+        label.invisible.h-0(for='new_status') Enter new status here:
+        textarea.textarea.p-2.border-2.border-gray-300.rounded-lg#new_status(name='new_status' placeholder='New status...')
+
+        button.button.px-6.py-2.my-5.self-center.rounded-md.shadow-lg.bg-blue-600.text-white(type='submit') Submit
+
+    a.link.block.my-2.text-blue-600.text-center.text-xl(href='/profile') Back to Profile
+    a.link.block.my-2.text-blue-600.text-center.text-xl(href='/logout') Logout

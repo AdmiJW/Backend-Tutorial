@@ -1,0 +1,9 @@
+extends _template.pug
+
+block body
+    h1.title.my-5.text-7xl.text-center Welcome
+
+    include _message.pug
+
+    a.link(href='/login').block.my-2.text-blue-600.text-center.text-xl Login
+    a.link(href='/register').block.my-2.text-blue-600.text-center.text-xl Register

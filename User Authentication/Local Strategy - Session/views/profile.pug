@@ -1,0 +1,16 @@
+extends _template.pug
+
+block body
+    h1.title.my-5.text-7xl.text-center
+        | Welcome, 
+        span.text-red-400=username
+
+    include _message.pug
+
+    h4.subtitle.my-3.text-xl.text-center Your Status:
+    .text-center
+        blockquote.statustext.inline-block.p-3.my-6.mx-auto.border-l-4.border-blue-400.bg-gray-100.text-xl.text-center.rounded-md
+            =status
+
+    a.link.block.my-2.text-blue-600.text-center.text-xl(href='/change_status') Change Status
+    a.link.block.my-2.text-blue-600.text-center.text-xl(href='/logout') Logout

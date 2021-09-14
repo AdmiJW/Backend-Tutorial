@@ -1,0 +1,22 @@
+extends _template.pug
+
+block body
+    h1.title.my-5.text-7xl.text-center Register
+
+    include _message.pug
+
+    form.form.flex.flex-col.px-6.register-form(action='/register' method='POST')
+        label(for='username').invisible.h-0 Username 
+        input.field.my-3.py-2.px-2.border-2.border-grey-300.rounded-lg#username(type='username' name='username' placeholder='Username' required='true')
+
+        label(for='password').invisible.h-0 Password
+        input.field.my-3.py-2.px-2.border-2.border-grey-300.rounded-lg#password(type='password' name='password' placeholder='Password' required='true')
+        
+        label(for='confirm_password').invisible.h-0 Confirm Password
+        input.field.my-3.py-2.px-2.border-2.border-grey-300.rounded-lg#confirm_password(type='password' name='confirm_password' placeholder='Confirm Password' required='true')
+
+        button.button.px-6.py-2.my-5.self-center.rounded-md.shadow-lg.bg-blue-600.text-white(type='submit') Submit
+
+    p.redirect.block.my-2.text-center.text-xl
+        | Already Registered?  
+        a.link.text-blue-600(href='/login') Login Now
