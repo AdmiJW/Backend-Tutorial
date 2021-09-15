@@ -1,0 +1,16 @@
+{
+  "name": "public-key-cryptography",
+  "version": "1.0.0",
+  "description": "Introduction to public key cryptography",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Public",
+    "key",
+    "Cryptography"
+  ],
+  "author": "AdmiJW",
+  "license": "MIT"
+}

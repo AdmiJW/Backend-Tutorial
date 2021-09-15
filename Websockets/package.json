@@ -9,7 +9,8 @@
   "version": "1.0.0",
   "main": "_1_1_Websockets.js",
   "scripts": {
-    "nodemon": "nodemon _1_2_SocketIO.js"
+    "nodemon": "nodemon _1_2_SocketIO.js",
+    "start": "node _1_2_SocketIO.js"
   },
   "author": "AdmiJW",
   "license": "ISC",
