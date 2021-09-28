@@ -5,6 +5,8 @@ import firestore from '../firestore';
 
 function Blog(props) {
     const [pendingDel, setPendingDel] = useState(false);
+
+    // useMemo to ensure blogs don't keep rerendering whenever there is changes.
     return useMemo(()=> getBlogJSX(props.blog, pendingDel, setPendingDel), [props.blog, pendingDel]);
 }
 
@@ -13,7 +15,7 @@ function Blog(props) {
 // I want to use useMemo() to memoize the blog posts.
 function getBlogJSX(blog, pendingDel, setPendingDel) {
     const { _id, title, author, content, date } = blog;
-    const dateString = ( new Date(date.seconds * 1000) ).toDateString();
+    const dateString = date? ( new Date(date.seconds * 1000) ).toDateString(): "";
 
     // JSX
     return (
@@ -39,7 +41,7 @@ function getBlogJSX(blog, pendingDel, setPendingDel) {
                 </div>
             </div>
 
-            {/* Actual blog content */}
+            {/* Actual blog content - Supports Markdown */}
             <ReactMarkdown className='blog__content'>{ content }</ReactMarkdown>
         </article>
     );
@@ -50,7 +52,7 @@ function getBlogJSX(blog, pendingDel, setPendingDel) {
 // setPendingDel is simply a state changing function given by useState() hook
 function deletePost(_id, setPendingDel) {
     setPendingDel(true);
-    firestore.deleteDoc( firestore.doc( firestore.getFirestore(), 'users', _id) );
+    firestore.deleteDoc( firestore.doc( firestore.getFirestore(), 'blogs', _id) );
 }
 
 export default Blog;

@@ -1,6 +1,7 @@
 import Blog from './Blog';
 
-
+// A component that is shown on main page - Contains a list of <Blog /> component.
+// The list of blogs is passed in using props from top level component.
 function BlogList(props) {
     const { blogs } = props;
 
