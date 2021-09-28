@@ -107,3 +107,57 @@ A JWT consists of __3__ parts, each separated by a period (`.`).
 * __Signature__ - The core purpose of JWT. It takes the concatenation of __Header__ and __Payload__, and __hashes__ it with the __secret__ key. Anyone with public key can decrypt it and be confident that the JWT is issued by the server.
 
 At the end, you should be having 3 period (.) separated Base64url encoded strings that are easily passed in HTTP / HTML environments.
+
+---
+
+<br>
+
+## Refresh Token and Access Token
+
+Is everything settled by issuing an JWT to the client whenever he logs in? If you didn't know yet, the server could put a expiry date on the JWT to expire the token after some period of time.
+
+Conflict arises when we talk about setting the expire time:
+
+* If we set the expire time to be too soon, the user will very soon be logged out. This causes bad user experience as the user will have to repeatedly authenticate himself.
+* If we set the expire time to be infinite or too long, the problems are mainly to __invalidate__ the token:
+    
+    * If the user logs out, how do we invalidate the token? Say the token is used to fetch the profile page. Even if we tell the user to delete the JWT from the browser, the profile page will still be fetched if the JWT is sent to the server - since JWT is self-contained.
+    * Even worse, if we ban a client from using our service, do we kindly ask the client to remove the JWT from their browser? Of course nobody would want to do that!
+    * Say the token is used to access multiple resources. Suddenly we decided that the clients shall not have access to one of the resources. We could issue a new token to the client that have modified access, but they would still have access to all the resource if they chose to send the old JWT token!
+
+Introducing __Access Token__ and __Refresh Token__:
+
+* __Access Token__ is the token used to access server resources: Fetch posts, View profile page etc
+* __Refresh Token__ is the token used to obtain new / refresh expired access tokens. Think of it as a master token to obtain other tokens. __HOWEVER__, refresh token is not necessary a JWT, it might just be a unique hash.
+
+As you might've guessed, whenever a user logs in, __two__ (or more) tokens are issued by the server to the client, with one being the __Refresh token__. We would want the Access token to be __short lived__ while the Refresh token to be __long lived__.
+
+This is the workflow of client access server resource:
+
+1. The client logs into the server. At least two tokens, one being the __Refresh token__, are all stored into the client's browser.
+1. Whenever the client wants to access some server resource, only the __Access token__ is sent. The server validates the token and responds with requested resource.
+1. Again, client tries to access some server resource. However, the short living __Access token__ had expired! The client is redirected to the authentication server to request a new access token. For this, __Refresh token__ is sent to the server.
+1. The server validates the __Refresh token__, and responds with a new access token. The client can access the server resource again.
+1. However, if the __Refresh token__ also expired, the user is redirected to the login page to log in again. Back to Step (1)
+
+Unlike the access token which is stateless, we would more likely be using a database (or redis cache) to store currently active refresh tokens. When refresh token is being presented to the authentication server, the server will look up the database to check for any statuses like banning, or change of access. Unlike sessions which have to look up the database for every request, the server now would only need to check the database whenever the expired access token needs to be replaced. Less database lookup = performance!
+
+There you have it! __Refresh token__ is like JWT's version of Sessions!
+
+By having __Refresh token__, we gain certain benefits:
+* The server is more easily scaled horizontally. We would set one special server for authentication purpose only - To handle issuing of refresh token and access tokens.
+* We now have another way of invalidating JWT. The validity status of an access token is updated whenever the access token (short-lived) expires.
+
+---
+
+<br>
+
+## JWT Superior?
+
+So, is JWT superior than traditional sessions? Depends:
+
+* If your system is distributed, built with microservices architecture, with many API endpoints, using JWT is preferred as it adds a lot of scalability to the system.
+
+* If user's authorization status may quickly change from one to another (Eg: banning), then using sessions is preferred as the user status take effect immediately. Use cache to quickly fetch user sessions.
+
+* Because Single Page Applications (SPA) like React, Angular, Vue etc usually uses API, JWT is a common authorization choice.

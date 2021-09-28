@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+    --container-width: 1280px;
+    --custom-font1: 'Roboto', sans-serif;
+
+    font-size: 10px;
+    font-family: var(--custom-font1);
+    
+}
+
+* {
+    padding: 0; margin: 0;
+    box-sizing: border-box;
+}
+
+
+/*===================================
+    General Classes
+===================================*/
+.container {
+    margin-left: max(15px, calc((100vw - var(--container-width))/ 2));
+    margin-right: max(15px, calc((100vw - var(--container-width)) / 2));
+}
+
+.container-padding {
+    padding-left: max(15px, calc((100vw - var(--container-width))/ 2));
+    padding-right: max(15px, calc((100vw - var(--container-width)) / 2));
+}
+
+.no-anchor-style {
+    text-decoration: none;
+    color: unset;
+}
+
+.no-list-style {
+    list-style-type: none;
+}
+
+.title {
+    margin: .5em 0;
+    font-weight: 300;
+    font-size: 5rem;
+    text-align: center;
+    text-shadow: 0 3px 2px rgb(0 0 0 / .2);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/*===================================
+    Styling
+===================================*/
+body {
+    background-color: #ffffff;
+    background: linear-gradient(135deg, #f4f4f455 25%, transparent 25%) -40px 0/ 80px 80px, linear-gradient(225deg, #f4f4f4 25%, transparent 25%) -40px 0/ 80px 80px, linear-gradient(315deg, #f4f4f455 25%, transparent 25%) 0px 0/ 80px 80px, linear-gradient(45deg, #f4f4f4 25%, #ffffff 25%) 0px 0/ 80px 80px;
+}
+
+
+/*===================================
+    NAVIGATION
+===================================*/
+.nav {
+    position: sticky;
+    inset: 0 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    background-color: #3da4e9;
+    box-shadow: 0 5px 5px rgb(0 0 0 / .1);
+}
+
+#nav__home, #nav__createpost {
+    font-weight: 900;
+    font-size: 3.5rem;
+    color: #fff;
+    text-shadow: 0 4px 2px rgb(0 0 0 / .3);
+}
+
+
+/*===================================
+    Blogs Related
+===================================*/
+#blog-list {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: auto;
+    gap: 2rem;
+}
+
+.blog {
+    padding: 1em;
+    margin: 0 10px;
+
+    /* Glassmorphism */
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 2px 16px 0 rgba(59, 66, 156, 0.37);
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 2px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border-radius: 1rem;
+}
+
+.blog.pending-delete {
+    opacity: .3;
+}
+
+.blog__header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blog__buttons {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+
+.blog__edit, .blog__del {
+    background: none;
+    border: none;
+    cursor:pointer;
+    color: #000;
+
+    font-size: 2.5rem;
+}
+.blog__del:hover, .blog__del:focus {
+    color: #c0392b;
+}
+.blog__edit:hover, .blog__edit:focus {
+    color: #f1c40f;
+}
+
+.blog__title {
+    font-size: 3rem;
+    margin: .2em 0 .3em 0;
+}
+
+.blog__authdate {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #aaaaaa;
+}
+
+.blog__content {
+    margin-top: 2rem;
+    font-size: 1.7rem;
+    font-weight: 300;
+}
+
+.blog__content ul, .blog__content ol {
+    padding-left: 2rem;
+}
+
+/*===================================
+    Create New Blogs
+===================================*/
+.blog__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    max-width: 900px;
+    margin: auto;
+}
+
+.blog__form > input, .blog__form > textarea {
+    padding: .2em .5em;
+    margin: 0 15px;
+    border-radius: .5em;
+    border: 1px solid rgb(160, 160, 160);
+
+    font-family: var(--custom-font1);
+    font-weight: 300;
+    font-size: 2.2rem;
+}
+
+.blog__form textarea {
+    font-size: 1.5rem;
+    min-height: 200px;
+}
+
+#blog__submit_button {
+    align-self: center;
+    padding: .15em .75em;
+    font-family: var(--custom-font1);
+    cursor: pointer;
+
+    background-color: #3da4e9;
+    color: #fff;
+    border: none;
+    border-radius: .5rem;
+    box-shadow: 0 2px 2px #2079b4;
+
+    font-size: 2.5rem;
+}
+
+#blog__submit_spinner {
+    animation: spin 2s linear infinite forwards;
+    margin-left: 1rem;
+}

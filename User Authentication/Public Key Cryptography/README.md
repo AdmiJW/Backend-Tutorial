@@ -50,11 +50,11 @@ __Trapdoor functions__ have properties:
 * __Large number space__ - Large enough "output" space so collision almost never occurs
 * __Small enough output__ - To be efficiently transported, say over the network.
 
-One example would be __Prime factor of large numbers__. Given two prime numbers `a` and `b`, we easily compute its multiplication result by `a*b`, but given a multiplication result, it is hard to derive what `a` and `b` originally was, unless one of `a` or `b` is provided.
+One example would be __Prime Factorization method__ (Used by __RSA Encryption__). Given two prime numbers `a` and `b`, we easily compute its multiplication result by `a*b`, but given a multiplication result, it is hard to derive what `a` and `b` originally was, unless one of `a` or `b` is provided.
 
 ---
 
-### Elliptic Curve Cryptography
+### Elliptic Curve Cryptography - __ECDSA Encryption Algorithm__.
 
 [Reference](https://www.youtube.com/watch?v=dCvB-mhkT0w)
 
@@ -93,3 +93,10 @@ __Client__:
 This signing process essentially ensures two things:
 * The document/data is not tempered, it is the same version as seen from the signer. Otherwise the hash would be different
 * It is indeed the intended signer who signed the document/data, provided the fact that private key is used to encrypt the data which only public key can decrypt.
+
+
+__Food for Thought:__
+
+If an attacker tries to temper with the document signed by the signer, it would also need to change the signedHashed data
+to match with the tempered document. To achieve this, the attacker would need to know the secret key, which is pretty much
+impossible if the secret key is well kept!
