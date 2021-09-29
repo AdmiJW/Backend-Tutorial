@@ -1,0 +1,14 @@
+{
+  "short_name": "Login is Fun",
+  "name": "Login is Fun",
+  "icons": [
+    {
+      "src": "lock.svg",
+      "type": "image/svg"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
