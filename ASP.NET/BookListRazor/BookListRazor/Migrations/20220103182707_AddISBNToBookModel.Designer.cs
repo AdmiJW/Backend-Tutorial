@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookListRazor.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220101101631_AddBookToDb")]
-    partial class AddBookToDb
+    [Migration("20220103182707_AddISBNToBookModel")]
+    partial class AddISBNToBookModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,9 @@ namespace BookListRazor.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Author")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ISBN")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
