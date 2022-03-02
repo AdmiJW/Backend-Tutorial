@@ -1,0 +1,30 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f0f055 25%, transparent 25%) -40px 0/ 80px 80px, linear-gradient(225deg, #f0f0f0 25%, transparent 25%) -40px 0/ 80px 80px, linear-gradient(315deg, #f0f0f055 25%, transparent 25%) 0px 0/ 80px 80px, linear-gradient(45deg, #f0f0f0 25%, #ffffff 25%) 0px 0/ 80px 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.center-container {
+    max-height: 90vh;
+    max-width: 650px;
+    overflow-y: auto;
+
+    /* Glassmorphism */
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 4px 8px 0 rgba( 0, 0, 0, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}

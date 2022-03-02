@@ -1,0 +1,45 @@
+﻿@*{
+    You may use Dependency Injection (Once again) to obtain the signInManager, which can provide information
+    on whether the user had signed in or not!
+}*@
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
+
+
+ @*{
+    Using this dependency injection, you can write code like:
+
+        if (signInManager.isSignedIn(User)) ..<output HTML>
+
+    If you want to obtain the IdentityUser object, it's better to do it in the controller and pass it into the View
+    as ViewModel, as in Index.cshtml
+}*@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name='author' content='AdmiJW' />
+    <meta name='description' content='Simple authentication web application to demonstrate ASP.NET Identity' />
+    <title>@ViewData["Title"] - ASP Identity</title>
+
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ASPIdentity.styles.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    @RenderBody()
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
